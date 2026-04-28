@@ -45,6 +45,11 @@ async function runStartupCleanup() {
     await cleanupExpiredEmails();
 }
 
+async function ensureTempMailReady() {
+    await initTempMailDB();
+    await cleanupExpiredEmails();
+}
+
 async function cleanupExpiredEmails() {
     try {
         const expiryTime = new Date(Date.now() - EXPIRY_MINUTES * 60 * 1000);
@@ -82,7 +87,7 @@ function startTempMailCleanup() {
 }
 
 async function setUserEmail(userJid, email) {
-    await initTempMailDB();
+    await ensureTempMailReady();
     const existing = await TempMailDB.findOne({ where: { userJid } });
     if (existing) {
         existing.email = email;
@@ -94,7 +99,7 @@ async function setUserEmail(userJid, email) {
 }
 
 async function getUserEmailWithExpiry(userJid) {
-    await initTempMailDB();
+    await ensureTempMailReady();
     const record = await TempMailDB.findOne({ where: { userJid } });
     
     if (!record) return null;
@@ -129,7 +134,7 @@ async function getUserEmail(userJid) {
 }
 
 async function deleteUserEmail(userJid) {
-    await initTempMailDB();
+    await ensureTempMailReady();
     const result = await TempMailDB.destroy({ where: { userJid } });
     return result > 0;
 }
