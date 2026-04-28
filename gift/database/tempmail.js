@@ -2,6 +2,9 @@ const { DATABASE } = require('./database');
 const { DataTypes, Op } = require('sequelize');
 
 const EXPIRY_MINUTES = 10;
+const CLEANUP_INTERVAL_MS = Number(process.env.TEMPMAIL_CLEANUP_INTERVAL_MS || 60 * 1000);
+let initPromise = null;
+let cleanupTimer = null;
 
 const TempMailDB = DATABASE.define('TempMail', {
     id: {
@@ -28,8 +31,18 @@ const TempMailDB = DATABASE.define('TempMail', {
 });
 
 async function initTempMailDB() {
-    await TempMailDB.sync();
-    cleanupExpiredEmails();
+    if (!initPromise) {
+        initPromise = TempMailDB.sync().catch((error) => {
+            initPromise = null;
+            throw error;
+        });
+    }
+    await initPromise;
+}
+
+async function runStartupCleanup() {
+    await initTempMailDB();
+    await cleanupExpiredEmails();
 }
 
 async function cleanupExpiredEmails() {
@@ -48,7 +61,25 @@ async function cleanupExpiredEmails() {
     }
 }
 
-setInterval(cleanupExpiredEmails, 60 * 1000);
+function startTempMailCleanup() {
+    if (cleanupTimer) return cleanupTimer;
+
+    runStartupCleanup().catch((e) => {
+        console.error("[TempMail] Startup cleanup error:", e.message);
+    });
+
+    cleanupTimer = setInterval(() => {
+        cleanupExpiredEmails().catch((e) => {
+            console.error("[TempMail] Interval cleanup error:", e.message);
+        });
+    }, CLEANUP_INTERVAL_MS);
+
+    if (typeof cleanupTimer.unref === "function") {
+        cleanupTimer.unref();
+    }
+
+    return cleanupTimer;
+}
 
 async function setUserEmail(userJid, email) {
     await initTempMailDB();
@@ -105,6 +136,7 @@ async function deleteUserEmail(userJid) {
 
 module.exports = {
     initTempMailDB,
+    startTempMailCleanup,
     setUserEmail,
     getUserEmail,
     getUserEmailWithExpiry,
