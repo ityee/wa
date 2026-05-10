@@ -55,7 +55,7 @@ gmd(
     description: "Check whether bot is alive",
   },
   async (from, Gifted, conText) => {
-    const { react, botPrefix, botFooter, newsletterUrl } = conText;
+    const { mek, react, botPrefix, botFooter, newsletterUrl } = conText;
     const startTime = process.hrtime();
 
     await new Promise((resolve) =>
@@ -79,12 +79,20 @@ gmd(
 
 ❤️‍🔥 *PING* : ${responseTime}ms`;
 
-    await Gifted.sendMessage(from, {
-      video: { url: "https://files.catbox.moe/bpgdgy.mp4" },
-      mimetype: "video/mp4",
-      ptv: true,
-    });
+    const aliveVideoUrl = "https://files.catbox.moe/bpgdgy.mp4";
 
+    // Send PTV as a separate message (not attached with alive text/buttons).
+    await Gifted.sendMessage(
+      from,
+      {
+        video: { url: aliveVideoUrl },
+        mimetype: "video/mp4",
+        ptv: true,
+      },
+      { quoted: mek },
+    );
+
+    // Send alive message with buttons only.
     await sendButtons(Gifted, from, {
       title: "",
       text: aliveText,
