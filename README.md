@@ -1,32 +1,3 @@
-
-
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/nonxe/a1/main/aashif-banner.svg" width="800" alt="AASHIF-MD BY AASHIF SER"/>
-
-</div>
-
----
-
-<div align="center">
-
-### 🌟 Welcome to **AASHIF-MD** 🌟
-
-*A powerful WhatsApp Bot made with ❤️ by **Aashif Ser***
-
-</div>
-
---- 
-
-
-
-## For HEROKU DEPLOYMENT
-
-<a href="https://signup.heroku.com/login"><img src="https://img.shields.io/badge/HEROKU%20SIGNUP-white" alt="Heroku Signup" width="150"></a>
-  
-<a href="https://dashboard.heroku.com/new?template=https://github.com/ityee/wa"><img src="https://img.shields.io/badge/DEPLOY%20NOW-red" alt="Deploy on Heroku" width="150"></a>
-
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/nonxe/a1/main/aashif-banner.svg" width="800" alt="AASHIF-MD"/>
@@ -382,6 +353,7 @@ Send `.cmd` to the bot in any chat to get a full interactive command list, or `.
 
 <div align="center">
 
-Made with ❤️ by **Aashif Ser** · Powered by [baileys](https://www.npmjs.com/package/gifted-baileys)
+Made with ❤️ by **Aashif Ser** · Powered by [gifted-baileys](https://www.npmjs.com/package/gifted-baileys)
 
 </div>
+
