@@ -4,7 +4,7 @@
 
 # 🤖 AASHIF-MD
 
-*A powerful multi-device WhatsApp bot built with [gifted-baileys](https://www.npmjs.com/package/gifted-baileys)*
+*A powerful multi-device WhatsApp bot built with [baileys🌙](https://www.npmjs.com/package/gifted-baileys)*
 
 [![Node.js](https://img.shields.io/badge/Node.js-20+-green?logo=node.js)](https://nodejs.org)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
