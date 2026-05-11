@@ -1,0 +1,15 @@
+## Disclaimer
+
+This project is not affiliated with, authorized, maintained, sponsored, or endorsed by WhatsApp or Meta in any way.
+
+This bot uses unofficial libraries based on WhatsApp Web protocols. Using automation, modified clients, or unofficial APIs may violate WhatsApp's Terms of Service and can result in temporary or permanent account restrictions.
+
+The developers are not responsible for:
+- Account bans or restrictions
+- Misuse of the software
+- Data loss or security issues
+- Any damages caused by using this project
+
+Use this project at your own risk and only for educational or personal purposes.
+
+BY AS 🤍
