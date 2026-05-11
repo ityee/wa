@@ -353,7 +353,7 @@ Send `.cmd` to the bot in any chat to get a full interactive command list, or `.
 
 <div align="center">
 
-Made with ❤️ by **Aashif Ser** · Powered by [gifted-baileys](https://www.npmjs.com/package/gifted-baileys)
+Made with ❤️ by **Aashif Ser** · Powered by [baileys](https://www.npmjs.com/package/gifted-baileys)
 
 </div>
 
