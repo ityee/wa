@@ -27,7 +27,5 @@
   
 <a href="https://dashboard.heroku.com/new?template=https://github.com/nonxe/a1"><img src="https://img.shields.io/badge/DEPLOY%20NOW-red" alt="Deploy on Heroku" width="150"></a>
 
-## For Localhost or Panel
-<a href="https://github.com/nonxe/a1/archive/refs/heads/main.zip">
-  <img src="https://img.shields.io/badge/⬇️ Download ZIP-Click Here-brightgreen?style=for-the-badge" alt="Download ZIP"/>
-</a>
+
+# SIGN.TXT
