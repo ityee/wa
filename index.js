@@ -228,9 +228,12 @@ async function startGifted() {
                         if (s.STARTING_MESSAGE === "true") {
                             const pingStart = Date.now();
                             const ping = Date.now() - pingStart;
-                            const connectionMsg = `*AASHIF-MD CONNECTED*
+                            const connectionMsg = `*BOT CONNECTED🌙*
 
-⚡ Ping: ${ping}ms`;
+⚡ Ping: ${ping}ms
+Wa channel: https://whatsapp.com/channel/0029VbBuHjx2ER6cVsDRlR14
+
+> *AASHIF-MD XEON 🌙♥️*`;
 
                             await Gifted.sendMessage(
                                 Gifted.user.id,
